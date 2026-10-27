@@ -1,0 +1,36 @@
+[package]
+name = "ciber_term"
+version = "0.1.0"
+edition = "2024"
+authors = ["CiberCodes <tuliosouza0803@gmail.com>"]
+description = "Next-generation native ANSI terminal control and formatting."
+repository = "https://github.com/CiberCodes/ciber_term"
+documentation = "https://docs.rs/ciber_term"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+
+keywords = ["terminal", "ansi", "color", "cli", "style"]
+categories = ["command-line-interface"]
+
+[dependencies]
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_System_Console"] }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[lints.rust]
+unsafe_code = "warn"
+missing_docs = "warn"
+missing_debug_implementations = "warn"
+
+[lints.clippy]
+pedantic = "warn"
+nursery = "warn"
+unwrap_used = "warn"
+expect_used = "warn"
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
